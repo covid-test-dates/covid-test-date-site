@@ -24,7 +24,7 @@ export default function Home({
       </Head>
       <section>
         <h1>COVID Test expiration date checker</h1>
-        <p>This site allows you to checke update COVID test expiration dates.</p>
+        <p>This site allows you to check updated COVID test expiration dates.</p>
       </section>
       <section>
         <TestManufacturerSelector />
