@@ -1,4 +1,12 @@
+# COVID test date site.
+
+This site allows users to easily check updated expiration dates for COVID tests.
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+
+## COVID Test Data
+
+Compiled by Jesse Lang at https://docs.google.com/spreadsheets/d/1XLbvOTxRkRpJpTElxzS5owh8g7WOYcyE14ZpTwJFbAM/edit#gid=0
 
 ## Getting Started
 
