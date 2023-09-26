@@ -136,6 +136,10 @@ export default function Home({
         <h1>COVID Test expiration date checker</h1>
         <p>This site allows you to checke update COVID test expiration dates.</p>
       </section>
+      <section>
+        <h2>Original Expiration Date</h2>
+        <input type="date" name="original-expiration-date"></input>
+      </section>
     </>
   );
 }
