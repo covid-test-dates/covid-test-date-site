@@ -2,21 +2,23 @@ import Head from 'next/head';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 import { GetStaticProps } from 'next';
-import { getSortedTestsData } from '@/lib/covid-tests';
+import { C19TestData, getSortedTestsData, TestManufacturer } from '@/lib/covid-tests';
 import { Select } from '@mantine/core';
 import { useState } from 'react';
 import { DatePicker } from '@mantine/dates';
 
 
 export default function Home({
-  allPostsData,
+  c19TestData,
+  manufacturers
 }: {
-  allPostsData: {
-    date: string;
-    title: string;
-    id: string;
+  C19Tests: {
+    testData: C19TestData;
+    manufacturers: TestManfacturers[];
   }[];
 }) {
+  console.log(c19TestData);
+  console.log(manufacturers);
   return (
     <>
       <Head>
@@ -27,7 +29,8 @@ export default function Home({
         <p>This site allows you to check updated COVID test expiration dates.</p>
       </section>
       <section>
-        <TestManufacturerSelector />
+        <TestManufacturerSelector
+          manufacturers={manufacturers} />
         <h2>Original Expiration Date</h2>
         <OriginalExpirationDate />
       </section>
@@ -35,17 +38,21 @@ export default function Home({
   );
 }
 
+interface TestManfacturers {
+  manufacturers: TestManufacturer[]
+}
 
-function TestManufacturerSelector() {
+function TestManufacturerSelector({ manufacturers }: TestManufacturers) {
   return (
     <Select
       label="COVID Test Manufacturer"
       placeholder="Pick value"
-      data={['Abbott', 'Someone else']}
+      data={manufacturers}
       searchable
     />
   );
 }
+
 
 function OriginalExpirationDate() {
   const [value, setValue] = useState<Date | null>(null);
@@ -55,10 +62,12 @@ function OriginalExpirationDate() {
 
 
 export const getStaticProps: GetStaticProps = async () => {
-  const allPostsData = getSortedTestsData();
+  const c19TestData = getSortedTestsData();
+  const manufacturers: TestManufacturer[] = Array.from(new Set(c19TestData.map((row) => row[0])))
   return {
     props: {
-      allPostsData,
+      c19TestData,
+      manufacturers,
     },
   };
 };
