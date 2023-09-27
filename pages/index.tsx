@@ -10,15 +10,14 @@ import { DatePicker } from '@mantine/dates';
 
 export default function Home({
   c19TestData,
-  manufacturers
+  manufacturers,
 }: {
   C19Tests: {
-    testData: C19TestData;
+    c19TestData: C19TestData;
     manufacturers: TestManfacturers[];
-  }[];
+  };
 }) {
   console.log(c19TestData);
-  console.log(manufacturers);
   return (
     <>
       <Head>
@@ -42,7 +41,7 @@ interface TestManfacturers {
   manufacturers: TestManufacturer[]
 }
 
-function TestManufacturerSelector({ manufacturers }: TestManufacturers) {
+function TestManufacturerSelector({ manufacturers }: TestManfacturers) {
   return (
     <Select
       label="COVID Test Manufacturer"

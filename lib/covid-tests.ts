@@ -18,27 +18,4 @@ export function getSortedTestsData(): C19TestData[] {
     const c19_test_data_raw = fs.readFileSync(c19_tests_file);
     const c19_test_data = parse(c19_test_data_raw, { delimiter: ",", from_line: 2 });
     return c19_test_data;
-
-
-    // const allPostsData = fileNames.map((fileName) => {
-    //     // Remove ".md" from file name to get id
-    //     const id = fileName.replace(/\.md$/, '');
-
-    //     // Read markdown file as string
-    //     const fullPath = path.join(postsDirectory, fileName);
-    //     const fileContents = fs.readFileSync(fullPath, 'utf8');
-
-    //     // Combine the data with the id
-    //     return {
-    //         id
-    //     };
-    // });
-    // // Sort posts by date
-    // return allPostsData.sort((a, b) => {
-    //     if (a.date < b.date) {
-    //         return 1;
-    //     } else {
-    //         return -1;
-    //     }
-    // });
 }
