@@ -2,7 +2,7 @@ import { parse } from 'csv-parse/sync';
 import fs from 'fs';
 import path from 'path';
 
-const c19TestsFile = path.join(process.cwd(), 'covid-tests', 'c19_test_spreadsheet_export.csv');
+const c19TestsFile = path.join(process.cwd(), 'covid-tests', 'c19TestSpreadsheetExport.csv');
 
 export type TestManufacturer = string
 export type TestBrandName = string
