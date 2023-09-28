@@ -9,7 +9,7 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 Compiled by Jesse Lang at https://docs.google.com/spreadsheets/d/1XLbvOTxRkRpJpTElxzS5owh8g7WOYcyE14ZpTwJFbAM/edit#gid=0
 
 ## Getting Started
-First, install the required deps:
+First, install the dependencies:
 ```bash
 npm install
 ```
