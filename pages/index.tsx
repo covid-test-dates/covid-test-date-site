@@ -2,10 +2,11 @@ import Head from 'next/head';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 import { GetStaticProps } from 'next';
-import { C19TestData, getSortedTestsData, TestManufacturer } from '@/lib/covid-tests';
+import { C19TestData, getSortedTestsData, TestManufacturer } from '@/lib/covidTests';
 import { Container, Select } from '@mantine/core';
 import { useState } from 'react';
 import { DatePicker } from '@mantine/dates';
+import { ColorSchemeScript } from '@mantine/core';
 
 
 export default function Home({
@@ -21,6 +22,7 @@ export default function Home({
   return (
     <>
       <Head>
+        <ColorSchemeScript defaultColorScheme="auto" />
         <title>COVID tests updated expiration checker</title>
       </Head>
       <Container>
