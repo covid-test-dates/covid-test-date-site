@@ -9,10 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@mantine/core": "^7.0.2",
-    "@mantine/dates": "^7.0.2",
+    "@mantine/core": "^7.1.0",
+    "@mantine/dates": "^7.1.0",
     "@mantine/form": "^7.0.2",
-    "@mantine/hooks": "^7.0.2",
+    "@mantine/hooks": "^7.1.0",
+    "@mantine/styles": "^6.0.21",
     "csv": "^6.3.3",
     "dayjs": "^1.11.10",
     "next": "latest",
