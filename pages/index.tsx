@@ -14,7 +14,7 @@ export default function Home({
   manufacturers,
 }:
   {
-    c19TestData: C19TestData;
+    c19TestData: C19TestData[];
     manufacturers: TestManufacturer[];
   }
 ) {
