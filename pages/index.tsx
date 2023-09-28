@@ -3,7 +3,7 @@ import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 import { GetStaticProps } from 'next';
 import { C19TestData, getSortedTestsData, TestManufacturer } from '@/lib/covidTests';
-import { Select } from '@mantine/core';
+import { Container, Select } from '@mantine/core';
 import { useState } from 'react';
 import { DatePicker } from '@mantine/dates';
 import { ColorSchemeScript } from '@mantine/core';
@@ -25,16 +25,19 @@ export default function Home({
         <ColorSchemeScript defaultColorScheme="auto" />
         <title>COVID tests updated expiration checker</title>
       </Head>
-      <section>
-        <h1>COVID Test expiration date checker</h1>
-        <p>This site allows you to check updated COVID test expiration dates.</p>
-      </section>
-      <section>
-        <TestManufacturerSelector
-          manufacturers={manufacturers} />
-        <h2>Original Expiration Date</h2>
-        <OriginalExpirationDate />
-      </section>
+      <Container>
+        <section>
+          <h1>COVID Test expiration date checker</h1>
+          <p>
+            This site allows you to check updated COVID test expiration dates.
+          </p>
+        </section>
+        <section>
+          <TestManufacturerSelector manufacturers={manufacturers} />
+          <h2>Original Expiration Date</h2>
+          <OriginalExpirationDate />
+        </section>
+      </Container>
     </>
   );
 }
