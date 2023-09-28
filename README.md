@@ -9,9 +9,9 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 Compiled by Jesse Lang at https://docs.google.com/spreadsheets/d/1XLbvOTxRkRpJpTElxzS5owh8g7WOYcyE14ZpTwJFbAM/edit#gid=0
 
 ## Getting Started
-First, install the Mantine deps:
+First, install the dependencies:
 ```bash
-npm install @mantine/core @mantine/hooks @mantine/dates dayjs
+npm install
 ```
 
 Second, run the development server:
