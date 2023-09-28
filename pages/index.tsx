@@ -18,6 +18,7 @@ export default function Home({
     manufacturers: TestManfacturers[];
   };
 }) {
+  const [value, setValue] = useState<Date | null>(null);
   console.log(c19TestData);
   return (
     <>
@@ -35,7 +36,8 @@ export default function Home({
         <section>
           <TestManufacturerSelector manufacturers={manufacturers} />
           <h2>Original Expiration Date</h2>
-          <OriginalExpirationDate />
+          <OriginalExpirationDate value={value} setValue={setValue} />
+          {value ? <p>The selected date is {value.toLocaleString()}</p> : null}
         </section>
       </Container>
     </>
@@ -58,8 +60,7 @@ function TestManufacturerSelector({ manufacturers }: TestManfacturers) {
 }
 
 
-function OriginalExpirationDate() {
-  const [value, setValue] = useState<Date | null>(null);
+function OriginalExpirationDate({value, setValue}) {
   return <DatePicker value={value} onChange={setValue} />;
 }
 
