@@ -61,7 +61,6 @@ function TestManufacturerSelector({ manufacturers }: TestManfacturers) {
 
 
 function OriginalExpirationDate({value, setValue}) {
-  //const [value, setValue] = useState<Date | null>(null);
   return <DatePicker value={value} onChange={setValue} />;
 }
 
