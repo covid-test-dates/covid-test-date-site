@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { GetStaticProps } from 'next';
 import { C19TestData, getSortedTestsData, TestManufacturer } from '@/lib/covidTests';
 import { Container, Select } from '@mantine/core';
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import { DatePicker } from '@mantine/dates';
 import { ColorSchemeScript } from '@mantine/core';
 
@@ -12,12 +12,12 @@ import { ColorSchemeScript } from '@mantine/core';
 export default function Home({
   c19TestData,
   manufacturers,
-}: {
-  C19Tests: {
+}:
+  {
     c19TestData: C19TestData;
-    manufacturers: TestManfacturers[];
-  };
-}) {
+    manufacturers: TestManufacturer[];
+  }
+) {
   const [value, setValue] = useState<Date | null>(null);
   console.log(c19TestData);
   return (
@@ -44,11 +44,11 @@ export default function Home({
   );
 }
 
-interface TestManfacturers {
+interface TestManufacturers {
   manufacturers: TestManufacturer[]
 }
 
-function TestManufacturerSelector({ manufacturers }: TestManfacturers) {
+function TestManufacturerSelector({ manufacturers }: TestManufacturers) {
   return (
     <Select
       label="COVID Test Manufacturer"
@@ -60,7 +60,7 @@ function TestManufacturerSelector({ manufacturers }: TestManfacturers) {
 }
 
 
-function OriginalExpirationDate({value, setValue}) {
+function OriginalExpirationDate({ value, setValue }: { value: Date | null, setValue: Dispatch<SetStateAction<Date | null>> }) {
   return <DatePicker value={value} onChange={setValue} />;
 }
 
