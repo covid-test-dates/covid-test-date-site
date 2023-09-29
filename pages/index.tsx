@@ -18,7 +18,8 @@ export default function Home({
     manufacturers: TestManufacturer[];
   }
 ) {
-  const [value, setValue] = useState<Date | null>(null);
+  const [expiration, setExpiration] = useState<Date | null>(null);
+  const [manufacturer, setManufacturer] = useState<TestManufacturer | null>(null);
   console.log(c19TestData);
   return (
     <>
@@ -34,10 +35,14 @@ export default function Home({
           </p>
         </section>
         <section>
-          <TestManufacturerSelector manufacturers={manufacturers} />
+          <TestManufacturerSelector
+            manufacturers={manufacturers}
+            value={manufacturer}
+            setValue={setManufacturer} />
+          {manufacturer ? <p>The selected manufacturer is {manufacturer}</p> : null}
           <h2>Original Expiration Date</h2>
-          <OriginalExpirationDate value={value} setValue={setValue} />
-          {value ? <p>The selected date is {value.toLocaleString()}</p> : null}
+          <OriginalExpirationDate value={expiration} setValue={setExpiration} />
+          {expiration ? <p>The selected date is {expiration.toLocaleString()}</p> : null}
         </section>
       </Container>
     </>
@@ -45,15 +50,19 @@ export default function Home({
 }
 
 interface TestManufacturers {
-  manufacturers: TestManufacturer[]
+  manufacturers: TestManufacturer[],
+  value: TestManufacturer | null,
+  setValue: Dispatch<SetStateAction<TestManufacturer | null>>
 }
 
-function TestManufacturerSelector({ manufacturers }: TestManufacturers) {
+function TestManufacturerSelector({ manufacturers, value, setValue }: TestManufacturers) {
   return (
     <Select
       label="COVID Test Manufacturer"
       placeholder="Pick value"
       data={manufacturers}
+      value={value}
+      onChange={setValue}
       searchable
     />
   );
