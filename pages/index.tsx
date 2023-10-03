@@ -115,7 +115,7 @@ interface C19TestProps {
 function C19TestSelector<T>({ label, disabled, options, value, setValue }: C19TestProps) {
   return (
     <Select
-      label="COVID Test Manufacturer"
+      label={label}
       placeholder="Pick value"
       data={options}
       value={value}
