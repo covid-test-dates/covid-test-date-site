@@ -24,6 +24,20 @@ export default function Home({
   const [testBrand, setTestBrand] = useState<TestBrandName | null>(null);
   const [expiration, setExpiration] = useState<string | null>(null);
   const [lotNumber, setLotNumber] = useState<string | null>(null);
+  const newExpirationDate = Array.from(
+    new Set(
+      c19TestData
+        .filter(
+          (row) =>
+            row[0] === manufacturer &&
+            row[1] === testBrand &&
+            row[2] === lotNumber &&
+            row[3] == expiration
+        )
+        .map((row) => row[4])
+    )
+  );
+  console.log(newExpirationDate);
   return (
     <>
       <Head>
@@ -76,10 +90,14 @@ export default function Home({
           {expiration ? <p>The selected date is {expiration.toLocaleString()}</p> : null}
         </section>
         <section>
-          <h2>The new expiration date is {
-            Array.from(new Set(c19TestData.filter((row) => (row[0] === manufacturer && row[1] === testBrand && row[2] === lotNumber && row[3] == expiration)).map((row) => row[4])))
-            }
-          </h2>
+          {newExpirationDate.length ? (
+            <h2>The new expiration date is {newExpirationDate}</h2>
+          ) : (
+            <h2>
+              Fill out the fields above to get the updated expiration date for
+              your test
+            </h2>
+          )}
         </section>
       </Container>
     </>
