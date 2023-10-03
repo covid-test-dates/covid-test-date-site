@@ -23,6 +23,7 @@ export default function Home({
   const [manufacturer, setManufacturer] = useState<TestManufacturer | null>(null);
   const [testBrand, setTestBrand] = useState<TestBrandName | null>(null);
   const [expiration, setExpiration] = useState<Date | null>(null);
+  const [lotNumber, setLotNumber] = useState<string | null>(null);
   return (
     <>
       <Head>
@@ -42,17 +43,29 @@ export default function Home({
             options={manufacturers}
             value={manufacturer}
             disabled={false}
-            setValue={(x) => { setManufacturer(x); setTestBrand(null); }} />
-          {manufacturer ? <p>The selected manufacturer is {manufacturer}</p> : null}
+            setValue={(x) => { setManufacturer(x); setTestBrand(null); setLotNumber(null);}} />
           <C19TestSelector
             label="COVID Test Brand Name"
             options={Array.from(new Set(c19TestData.filter((row) => row[0] === manufacturer).map((row) => row[1])))}
             value={testBrand}
             disabled={manufacturer === null}
-            setValue={setTestBrand} />
-          {manufacturer ? <p>The selected test brand is {testBrand}</p> : null}
+            setValue={(x) => {setTestBrand(x); setLotNumber(null);}} />
+          <Select
+            label="Lot number"
+            placeholder="Pick value"
+            data={Array.from(new Set(c19TestData.filter((row) => (row[0] === manufacturer && row[1] === testBrand)).map((row) => row[2])))}
+            value={lotNumber}
+            onChange={setLotNumber}
+            disabled={manufacturer === null || testBrand === null}
+            searchable
+          />
           <h2>Original Expiration Date</h2>
-          <OriginalExpirationDate value={expiration} setValue={setExpiration} />
+          <DatePicker value={expiration} onChange={setExpiration} allowDeselect />
+        </section>
+        <section>
+          {manufacturer ? <p>The selected manufacturer is {manufacturer}</p> : null}
+          {testBrand ? <p>The selected test brand is {testBrand}</p> : null}
+          {lotNumber ? <p>The selected lot number is {lotNumber}</p> : null}
           {expiration ? <p>The selected date is {expiration.toLocaleString()}</p> : null}
         </section>
       </Container>
@@ -81,11 +94,6 @@ function C19TestSelector<T>({ label, disabled, options, value, setValue }: C19Te
     />
   );
 }
-
-function OriginalExpirationDate({ value, setValue }: { value: Date | null, setValue: Dispatch<SetStateAction<Date | null>> }) {
-  return <DatePicker value={value} onChange={setValue} />;
-}
-
 
 
 export const getStaticProps: GetStaticProps = async () => {
