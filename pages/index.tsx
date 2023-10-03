@@ -22,7 +22,7 @@ export default function Home({
 ) {
   const [manufacturer, setManufacturer] = useState<TestManufacturer | null>(null);
   const [testBrand, setTestBrand] = useState<TestBrandName | null>(null);
-  const [expiration, setExpiration] = useState<Date | null>(null);
+  const [expiration, setExpiration] = useState<string | null>(null);
   const [lotNumber, setLotNumber] = useState<string | null>(null);
   return (
     <>
@@ -43,30 +43,43 @@ export default function Home({
             options={manufacturers}
             value={manufacturer}
             disabled={false}
-            setValue={(x) => { setManufacturer(x); setTestBrand(null); setLotNumber(null);}} />
+            setValue={(x) => { setManufacturer(x); setTestBrand(null); setLotNumber(null); setExpiration(null)}} />
           <C19TestSelector
             label="COVID Test Brand Name"
             options={Array.from(new Set(c19TestData.filter((row) => row[0] === manufacturer).map((row) => row[1])))}
             value={testBrand}
             disabled={manufacturer === null}
-            setValue={(x) => {setTestBrand(x); setLotNumber(null);}} />
+            setValue={(x) => {setTestBrand(x); setLotNumber(null); setExpiration(null);}} />
           <Select
             label="Lot number"
             placeholder="Pick value"
             data={Array.from(new Set(c19TestData.filter((row) => (row[0] === manufacturer && row[1] === testBrand)).map((row) => row[2])))}
             value={lotNumber}
-            onChange={setLotNumber}
+            onChange={(x) => {setLotNumber(x); setExpiration(null);}}
             disabled={manufacturer === null || testBrand === null}
             searchable
           />
-          <h2>Original Expiration Date</h2>
-          <DatePicker value={expiration} onChange={setExpiration} allowDeselect />
+          <Select
+            label="Original Expiration Date"
+            placeholder="Pick value"
+            data={Array.from(new Set(c19TestData.filter((row) => (row[0] === manufacturer && row[1] === testBrand && row[2] === lotNumber)).map((row) => row[3])))}
+            value={expiration}
+            onChange={setExpiration}
+            disabled={manufacturer === null || testBrand === null || lotNumber === null}
+            searchable
+          />
         </section>
         <section>
           {manufacturer ? <p>The selected manufacturer is {manufacturer}</p> : null}
           {testBrand ? <p>The selected test brand is {testBrand}</p> : null}
           {lotNumber ? <p>The selected lot number is {lotNumber}</p> : null}
           {expiration ? <p>The selected date is {expiration.toLocaleString()}</p> : null}
+        </section>
+        <section>
+          <h2>The new expiration date is {
+            Array.from(new Set(c19TestData.filter((row) => (row[0] === manufacturer && row[1] === testBrand && row[2] === lotNumber && row[3] == expiration)).map((row) => row[4])))
+            }
+          </h2>
         </section>
       </Container>
     </>
@@ -100,7 +113,6 @@ export const getStaticProps: GetStaticProps = async () => {
   const c19TestData = getSortedTestsData();
   const manufacturers: TestManufacturer[] = Array.from(new Set(c19TestData.map((row) => row[0])))
   const testBrands: TestBrandName[] = Array.from(new Set(c19TestData.map((row) => row[1])))
-  const testBrandsByManufacturer: TestBrandName[] = Array.from(new Set(c19TestData.map((row) => row[1])))
   return {
     props: {
       c19TestData,
