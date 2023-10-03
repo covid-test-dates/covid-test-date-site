@@ -23,7 +23,6 @@ export default function Home({
   const [manufacturer, setManufacturer] = useState<TestManufacturer | null>(null);
   const [testBrand, setTestBrand] = useState<TestBrandName | null>(null);
   const [expiration, setExpiration] = useState<Date | null>(null);
-
   return (
     <>
       <Head>
@@ -43,7 +42,7 @@ export default function Home({
             options={manufacturers}
             value={manufacturer}
             disabled={false}
-            setValue={setManufacturer} />
+            setValue={(x) => { setManufacturer(x); setTestBrand(null); }} />
           {manufacturer ? <p>The selected manufacturer is {manufacturer}</p> : null}
           <C19TestSelector
             label="COVID Test Brand Name"
