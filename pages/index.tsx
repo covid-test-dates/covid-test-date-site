@@ -3,7 +3,7 @@ import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 import { GetStaticProps } from 'next';
 import { C19TestData as C19TestData, getSortedTestsData, TestBrandName, TestManufacturer } from '@/lib/covidTests';
-import { AppShell, Button, Container, Group, MantineColorScheme, Modal, SegmentedControl, Select, useMantineColorScheme } from '@mantine/core';
+import { AppShell, Button, Container, Divider, Group, MantineColorScheme, Modal, SegmentedControl, Select, useMantineColorScheme } from '@mantine/core';
 import { Dispatch, SetStateAction, useState } from 'react';
 import { DatePicker } from '@mantine/dates';
 import { ColorSchemeScript } from '@mantine/core';
@@ -51,9 +51,9 @@ export default function Home({
           <Container>
             <section>
               <h1>COVID Test expiration date checker</h1>
-              <p>
-                This site allows you to check updated COVID test expiration dates.
-              </p>
+              <p>This site allows you to check updated COVID test expiration dates.</p>
+              <p>If box expiration date lists just a month and year, use the last day of the month listed (e.g. a test with an expiration date December 2023 on the box has an expiration date 2023-12-31 on this tool).</p>
+              <p>If a particular test or lot number is not listed, then use the expiration date listed on the box of the test.</p>
             </section>
             <section>
               <C19TestSelector
@@ -86,6 +86,14 @@ export default function Home({
                 disabled={manufacturer === null || testBrand === null || expiration === null}
                 searchable
               />
+              {manufacturer === "Celltrion USA, Inc." ?
+                <>
+                  <h3>Note for Celltrion DiaTrust COVID-19 Ag Home Test</h3>
+                  <p>For lot numbers with (*), if your test has this lot number followed by additional letters, the expiration dates listed also apply.</p>
+                  <p> For example, a test with lot number COVSA1001, would have the same manufacture date as lot numbers COVSA1001-A or COVSA1001-HF. Lot numbers COVSA1001-A or COVSA1001-HF would have the same extended expiration date as COVSA1001 in the table above.</p>
+                  <Divider />
+                </>
+                : null}
             </section>
             <section>
               {manufacturer ? <p>The selected manufacturer is {manufacturer}</p> : null}
@@ -108,15 +116,13 @@ export default function Home({
         </AppShell.Main>
         <AppShell.Footer>
           <ColorSchemeToggle />
-          <Button onClick={open}>About this page</Button>
+          <Button onClick={open}>About this tool</Button>
         </AppShell.Footer>
 
-        <Modal opened={opened} onClose={close} title="About this page">
-          <p>If box expiration date lists just a month and year, use the last day of the month listed (e.g. a test with an expiration date December 2023 on the box has an expiration date 2023-12-31 on this tool) </p>
-          <p>Relevant for Celltrion USA, Inc.: Celltrion DiaTrust COVID-19 Ag Home Test: For lot numbers with (*), if your test has this lot number followed by additional letters, the expiration dates listed also apply. For example, a test with lot number COVSA1001, would have the same manufacture date as lot numbers COVSA1001-A or COVSA1001-HF. Lot numbers COVSA1001-A or COVSA1001-HF would have the same extended expiration date as COVSA1001 in the table above.</p>
-          <p>If a particular test or lot number is not listed, then use the expiration date listed on the box of the test.</p>
+        <Modal opened={opened} onClose={close} title="About this tool">
           <p>Data source: <a href="https://www.fda.gov/medical-devices/coronavirus-covid-19-and-medical-devices/home-otc-covid-19-diagnostic-tests#list">Authorized At-Home OTC COVID-19 Diagnostic Tests and Expiration Dates
- on fda.gov</a> (data retrieved 9/25/2023 by <a href="https://www.linkedin.com/in/jesse-erin-lang/">Jesse Lang, MPA in Health Care Policy</a>)</p>
+            on fda.gov</a></p>
+          <p>Data retrieved 9/25/2023 by <a href="https://www.linkedin.com/in/jesse-erin-lang/">Jesse Lang, MPA in Health Care Policy</a></p>
 
 
         </Modal>
