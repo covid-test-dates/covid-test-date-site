@@ -123,6 +123,8 @@ export default function Home({
           <p>Data source: <a href="https://www.fda.gov/medical-devices/coronavirus-covid-19-and-medical-devices/home-otc-covid-19-diagnostic-tests#list">Authorized At-Home OTC COVID-19 Diagnostic Tests and Expiration Dates
             on fda.gov</a></p>
           <p>Data retrieved 9/25/2023 by <a href="https://www.linkedin.com/in/jesse-erin-lang/">Jesse Lang, MPA in Health Care Policy</a></p>
+          <p>Code by <a href="http://www.alangerber.us">Alan Gerber</a> and <a href="https://cookieboi.com/">Samir Lavingia</a>.</p>
+          <p>Source code is <a href="https://github.com/covid-test-dates/covid-test-date-site">available on Github</a>.</p>
 
 
         </Modal>
