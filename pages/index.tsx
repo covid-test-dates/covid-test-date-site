@@ -44,14 +44,15 @@ export default function Home({
     <>
       <Head>
         <ColorSchemeScript defaultColorScheme="auto" />
-        <title>COVID tests updated expiration checker</title>
+        <title>TurboTest 🚀🧪</title>
       </Head>
       {/* Create a Flex Box that is vertical that takes up the whole screen. */}
       <Flex direction="column" wrap="nowrap" mih="100vh">
         {/* Tell the main container to take up as much space as it can. This will shove the footer to the bottom. */}
         <Container styles={{root:{flex: 1}}}>
           <section>
-            <h1>COVID Test expiration date checker</h1>
+            <h1>TurboTest 🚀🧪</h1>
+            <h2>COVID Test expiration date checker</h2>
             <p>This site allows you to check updated COVID test expiration dates.</p>
             <p>If box expiration date lists just a month and year, use the last day of the month listed (e.g. a test with an expiration date December 2023 on the box has an expiration date 2023-12-31 on this tool).</p>
             <p>If a particular test or lot number is not listed, then use the expiration date listed on the box of the test.</p>
