@@ -127,7 +127,7 @@ export default function Home({
           <Space h="sm" />
         </AppShell.Footer>
 
-        <Modal opened={opened} onClose={close} title="About this tool">
+        <Modal centered opened={opened} onClose={close} title="About this tool">
           <p>Data source: <a href="https://www.fda.gov/medical-devices/coronavirus-covid-19-and-medical-devices/home-otc-covid-19-diagnostic-tests#list">Authorized At-Home OTC COVID-19 Diagnostic Tests and Expiration Dates
             on fda.gov</a></p>
           <p>Data retrieved 9/25/2023 by <a href="https://www.linkedin.com/in/jesse-erin-lang/">Jesse Lang, MPA in Health Care Policy</a></p>
