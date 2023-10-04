@@ -119,8 +119,7 @@ export default function Home({
         </AppShell.Main>
         <AppShell.Footer>
           <ColorSchemeToggle />
-          <Space h="sm" />
-          <Group justify="center">
+          <Group justify="center" mt="sm">
             <Button onClick={open} variant="filled" color="grape">
               About this tool
             </Button>
@@ -166,7 +165,7 @@ export function ColorSchemeToggle() {
   const { setColorScheme } = useMantineColorScheme();
 
   return (
-    <Group justify="center" mt="xl">
+    <Group justify="center" mt="sm">
       <SegmentedControl data={["auto", "light", "dark"]} onChange={(value: MantineColorScheme) => setColorScheme(value)} />
     </Group>
   );
