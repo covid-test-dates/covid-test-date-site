@@ -44,13 +44,14 @@ export default function Home({
     <>
       <Head>
         <ColorSchemeScript defaultColorScheme="auto" />
-        <title>COVID tests updated expiration checker</title>
+        <title>TurboTest 🚀🧪</title>
       </Head>
       <AppShell padding="lg">
         <AppShell.Main>
           <Container>
             <section>
-              <h1>COVID Test expiration date checker</h1>
+              <h1>TurboTest 🚀🧪</h1>
+              <h2>COVID Test expiration date checker</h2>
               <p>This site allows you to check updated COVID test expiration dates.</p>
               <p>If box expiration date lists just a month and year, use the last day of the month listed (e.g. a test with an expiration date December 2023 on the box has an expiration date 2023-12-31 on this tool).</p>
               <p>If a particular test or lot number is not listed, then use the expiration date listed on the box of the test.</p>
