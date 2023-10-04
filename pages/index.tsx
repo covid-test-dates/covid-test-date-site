@@ -3,7 +3,7 @@ import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 import { GetStaticProps } from 'next';
 import { C19TestData as C19TestData, getSortedTestsData, TestBrandName, TestManufacturer } from '@/lib/covidTests';
-import { AppShell, Button, Container, Divider, Group, MantineColorScheme, Modal, SegmentedControl, Select, useMantineColorScheme } from '@mantine/core';
+import { AppShell, Button, Container, Divider, Group, MantineColorScheme, Modal, SegmentedControl, Select, Space, useMantineColorScheme } from '@mantine/core';
 import { Dispatch, SetStateAction, useState } from 'react';
 import { DatePicker } from '@mantine/dates';
 import { ColorSchemeScript } from '@mantine/core';
@@ -110,13 +110,22 @@ export default function Home({
                   your test
                 </h2>
               )}
+              <Space h="xl" />
+              <Space h="xl" />
+              <Space h="xl" />
+              <Space h="xl" />
             </section>
           </Container>
-
         </AppShell.Main>
         <AppShell.Footer>
           <ColorSchemeToggle />
-          <Button onClick={open}>About this tool</Button>
+          <Space h="sm" />
+          <Group justify="center">
+            <Button onClick={open} variant="filled" color="grape">
+              About this tool
+            </Button>
+          </Group>
+          <Space h="sm" />
         </AppShell.Footer>
 
         <Modal opened={opened} onClose={close} title="About this tool">
@@ -125,10 +134,7 @@ export default function Home({
           <p>Data retrieved 9/25/2023 by <a href="https://www.linkedin.com/in/jesse-erin-lang/">Jesse Lang, MPA in Health Care Policy</a></p>
           <p>Code by <a href="http://www.alangerber.us">Alan Gerber</a> and <a href="https://cookieboi.com/">Samir Lavingia</a>.</p>
           <p>Source code is <a href="https://github.com/covid-test-dates/covid-test-date-site">available on Github</a>.</p>
-
-
         </Modal>
-
       </AppShell>
     </>
   );
