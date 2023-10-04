@@ -120,7 +120,7 @@ export default function Home({
         <AppShell.Footer>
           <ColorSchemeToggle />
           <Group justify="center" mt="sm">
-            <Button onClick={open} variant="filled" color="grape">
+            <Button onClick={open} variant="filled">
               About this tool
             </Button>
           </Group>

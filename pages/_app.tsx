@@ -21,8 +21,9 @@ const myColor: MantineColorsTuple = [
 
 const theme = createTheme({
   colors: {
-    myColor,
-  }
+    purple: myColor,
+  },
+  primaryColor: 'purple',
 });
 
 export default function App({ Component, pageProps }: AppProps) {
