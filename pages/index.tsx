@@ -110,23 +110,19 @@ export default function Home({
                   your test
                 </h2>
               )}
-              <Space h="xl" />
-              <Space h="xl" />
-              <Space h="xl" />
-              <Space h="xl" />
+            </section>
+            <Divider my="xl" />
+            <section>
+                <ColorSchemeToggle />
+                <Group justify="center" mt="sm">
+                  <Button onClick={open} variant="filled">
+                    About this tool
+                  </Button>
+                </Group>
+                <Space h="sm" />
             </section>
           </Container>
         </AppShell.Main>
-        <AppShell.Footer>
-          <ColorSchemeToggle />
-          <Group justify="center" mt="sm">
-            <Button onClick={open} variant="filled">
-              About this tool
-            </Button>
-          </Group>
-          <Space h="sm" />
-        </AppShell.Footer>
-
         <Modal centered opened={opened} onClose={close} title="About this tool">
           <p>Data source: <a href="https://www.fda.gov/medical-devices/coronavirus-covid-19-and-medical-devices/home-otc-covid-19-diagnostic-tests#list">Authorized At-Home OTC COVID-19 Diagnostic Tests and Expiration Dates
             on fda.gov</a></p>
