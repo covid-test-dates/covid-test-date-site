@@ -45,6 +45,40 @@ export default function Home({
       <Head>
         <ColorSchemeScript defaultColorScheme="auto" />
         <title>TurboTest 🚀🧪</title>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+        <meta
+          name="description"
+          content="Check your updated COVID test expiration dates here!"
+        />
+
+        {/* <!-- Facebook Meta Tags --> */}
+        <meta property="og:url" content="https://covid.alangerber.us/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="TurboTest 🚀🧪" />
+        <meta
+          property="og:description"
+          content="Check your updated COVID test expiration dates here!"
+        />
+        <meta
+          property="og:image"
+          content="https://storage.googleapis.com/cookieboi.com/covid-test/turbotest-name.jpg"
+        />
+
+        {/* <!-- Twitter Meta Tags --> */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="covid.alangerber.us" />
+        <meta property="twitter:url" content="https://covid.alangerber.us/" />
+        <meta name="twitter:title" content="TurboTest 🚀🧪" />
+        <meta
+          name="twitter:description"
+          content="Check your updated COVID test expiration dates here!"
+        />
+        <meta
+          name="twitter:image"
+          content="https://storage.googleapis.com/cookieboi.com/covid-test/turbotest-name.jpg"
+        />
+
+        {/* <!-- Meta Tags Generated via https://www.opengraph.xyz --> */}
       </Head>
       {/* Create a Flex Box that is vertical that takes up the whole screen. */}
       <Flex direction="column" wrap="nowrap" mih="100vh">
@@ -138,7 +172,8 @@ export default function Home({
           <p>Data source: <a href="https://www.fda.gov/medical-devices/coronavirus-covid-19-and-medical-devices/home-otc-covid-19-diagnostic-tests#list">Authorized At-Home OTC COVID-19 Diagnostic Tests and Expiration Dates
             on fda.gov</a></p>
           <p>Data retrieved 9/25/2023 by <a href="https://www.linkedin.com/in/jesse-erin-lang/">Jesse Lang, MPA in Health Care Policy</a></p>
-          <p>Code by <a href="http://www.alangerber.us">Alan Gerber</a> and <a href="https://cookieboi.com/">Samir Lavingia</a>.</p>
+          <p>Code by <a href="https://www.alangerber.us">Alan Gerber</a> and <a href="https://cookieboi.com/">Samir Lavingia</a>.</p>
+          <p>Illustrations by <a href="https://lizdenys.com/">Liz Denys</a>.</p>
           <p>Source code is <a href="https://github.com/covid-test-dates/covid-test-date-site">available on Github</a>.</p>
         </Modal>
     </Flex>
