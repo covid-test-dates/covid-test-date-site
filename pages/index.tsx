@@ -121,6 +121,7 @@ export default function Home({
               value={expiration}
               onChange={(x) => { setExpiration(x); setLotNumber(null); }}
               disabled={manufacturer === null || testBrand === null}
+              searchable
             />
             <Select
               label="Lot number"
@@ -129,6 +130,7 @@ export default function Home({
               value={lotNumber}
               onChange={setLotNumber}
               disabled={manufacturer === null || testBrand === null || expiration === null}
+              searchable
             />
             {manufacturer === "Celltrion USA, Inc." ?
               <>
@@ -196,6 +198,7 @@ function C19TestSelector<T>({ label, disabled, options, value, setValue }: C19Te
       value={value}
       onChange={setValue}
       disabled={disabled}
+      searchable
     />
   );
 }
