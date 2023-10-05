@@ -1,4 +1,4 @@
-# COVID test date site.
+# TurboTest: a COVID test date site
 
 This site allows users to easily check updated expiration dates for COVID tests.
 
