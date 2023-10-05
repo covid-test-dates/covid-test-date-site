@@ -3,7 +3,7 @@ import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 import { GetStaticProps } from 'next';
 import { C19TestData as C19TestData, getSortedTestsData, TestBrandName, TestManufacturer } from '@/lib/covidTests';
-import { Button, Container, Divider, Flex, Group, MantineColorScheme, Modal, SegmentedControl, Select, Space, useMantineColorScheme } from '@mantine/core';
+import { Button, Container, Divider, Flex, Group, Image, MantineColorScheme, Modal, SegmentedControl, Select, Space, useMantineColorScheme } from '@mantine/core';
 import { Dispatch, SetStateAction, useState } from 'react';
 import { DatePicker } from '@mantine/dates';
 import { ColorSchemeScript } from '@mantine/core';
@@ -52,6 +52,16 @@ export default function Home({
         <Container styles={{root:{flex: 1}}}>
           <section>
             <h1>TurboTest 🚀🧪</h1>
+            <Group justify="center">
+              <Image
+                alt="TurboTest Header Image"
+                radius="md"
+                h="200"
+                w="auto"
+                fit="contain"
+                src="https://storage.googleapis.com/cookieboi.com/covid-test/turbotest-name.jpg"
+              />
+            </Group>
             <h2>COVID Test expiration date checker</h2>
             <p>This site allows you to check updated COVID test expiration dates.</p>
             <p>If box expiration date lists just a month and year, use the last day of the month listed (e.g. a test with an expiration date December 2023 on the box has an expiration date 2023-12-31 on this tool).</p>
