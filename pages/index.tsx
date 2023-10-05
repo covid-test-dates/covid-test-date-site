@@ -45,6 +45,28 @@ export default function Home({
       <Head>
         <ColorSchemeScript defaultColorScheme="auto" />
         <title>TurboTest 🚀🧪</title>
+        
+        <!-- HTML Meta Tags -->
+        <title>TurboTest 🚀🧪</title>
+        <meta name="description" content="Check your updated COVID test expiration dates here!">
+      
+        <!-- Facebook Meta Tags -->
+        <meta property="og:url" content="https://covid.alangerber.us/">
+        <meta property="og:type" content="website">
+        <meta property="og:title" content="TurboTest 🚀🧪">
+        <meta property="og:description" content="Check your updated COVID test expiration dates here!">
+        <meta property="og:image" content="https://storage.googleapis.com/cookieboi.com/covid-test/emoji-illustration.png">
+      
+        <!-- Twitter Meta Tags -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="twitter:domain" content="covid.alangerber.us">
+        <meta property="twitter:url" content="https://covid.alangerber.us/">
+        <meta name="twitter:title" content="TurboTest 🚀🧪">
+        <meta name="twitter:description" content="Check your updated COVID test expiration dates here!">
+        <meta name="twitter:image" content="https://storage.googleapis.com/cookieboi.com/covid-test/emoji-illustration.png">
+      
+        <!-- Meta Tags Generated via https://www.opengraph.xyz -->
+              
       </Head>
       {/* Create a Flex Box that is vertical that takes up the whole screen. */}
       <Flex direction="column" wrap="nowrap" mih="100vh">
