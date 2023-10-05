@@ -61,7 +61,7 @@ export default function Home({
         />
         <meta
           property="og:image"
-          content="https://storage.googleapis.com/cookieboi.com/covid-test/emoji-illustration.png"
+          content="https://storage.googleapis.com/cookieboi.com/covid-test/turbotest.png"
         />
 
         {/* <!-- Twitter Meta Tags --> */}
@@ -75,7 +75,7 @@ export default function Home({
         />
         <meta
           name="twitter:image"
-          content="https://storage.googleapis.com/cookieboi.com/covid-test/emoji-illustration.png"
+          content="https://storage.googleapis.com/cookieboi.com/covid-test/turbotest.png"
         />
 
         {/* <!-- Meta Tags Generated via https://www.opengraph.xyz --> */}
