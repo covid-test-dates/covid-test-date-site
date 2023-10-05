@@ -5,6 +5,7 @@ import { Button, Container, Divider, Flex, Group, Image, MantineColorScheme, Mod
 import { Dispatch, SetStateAction, useState } from 'react';
 import { ColorSchemeScript } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
+import Script from 'next/script';
 
 
 export default function Home({
@@ -38,10 +39,13 @@ export default function Home({
   );
   return (
     <>
+      {/* Cloudflare Web Analytics */}
+      <Script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "305c7a9894eb4427bc8e952460b4b9d5"}' />
+      {/* End Cloudflare Web Analytics */}
       <Head>
         <ColorSchemeScript defaultColorScheme="auto" />
         <title>TurboTest 🚀🧪</title>
-        <link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <meta
           name="description"
           content="Check your updated COVID test expiration dates here!"
@@ -79,7 +83,7 @@ export default function Home({
       {/* Create a Flex Box that is vertical that takes up the whole screen. */}
       <Flex direction="column" wrap="nowrap" mih="100vh">
         {/* Tell the main container to take up as much space as it can. This will shove the footer to the bottom. */}
-        <Container styles={{root:{flex: 1}}}>
+        <Container styles={{ root: { flex: 1 } }}>
           <section>
             <h1>TurboTest 🚀🧪</h1>
             <Group justify="center">
@@ -168,7 +172,7 @@ export default function Home({
           <p>Illustrations by <a href="https://lizdenys.com/">Liz Denys</a>.</p>
           <p>Source code is <a href="https://github.com/covid-test-dates/covid-test-date-site">available on Github</a>.</p>
         </Modal>
-    </Flex>
+      </Flex>
     </>
   );
 }
