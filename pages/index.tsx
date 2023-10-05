@@ -1,11 +1,8 @@
 import Head from 'next/head';
-import utilStyles from '../styles/utils.module.css';
-import Link from 'next/link';
 import { GetStaticProps } from 'next';
 import { C19TestData as C19TestData, getSortedTestsData, TestBrandName, TestManufacturer } from '@/lib/covidTests';
 import { Button, Container, Divider, Flex, Group, Image, MantineColorScheme, Modal, SegmentedControl, Select, Space, useMantineColorScheme } from '@mantine/core';
 import { Dispatch, SetStateAction, useState } from 'react';
-import { DatePicker } from '@mantine/dates';
 import { ColorSchemeScript } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 
@@ -39,7 +36,6 @@ export default function Home({
         .map((row) => row[4])
     )
   );
-  console.log(newExpirationDate);
   return (
     <>
       <Head>
@@ -104,33 +100,29 @@ export default function Home({
           <section>
             <C19TestSelector
               label="COVID Test Manufacturer"
-              options={manufacturers}
+              data={manufacturers}
               value={manufacturer}
               disabled={false}
-              setValue={(x) => { setManufacturer(x); setTestBrand(null); setLotNumber(null); setExpiration(null) }} />
+              onChange={(x) => { setManufacturer(x); setTestBrand(null); setLotNumber(null); setExpiration(null) }} />
             <C19TestSelector
               label="COVID Test Brand Name"
-              options={Array.from(new Set(c19TestData.filter((row) => row[0] === manufacturer).map((row) => row[1])))}
+              data={Array.from(new Set(c19TestData.filter((row) => row[0] === manufacturer).map((row) => row[1])))}
               value={testBrand}
               disabled={manufacturer === null}
-              setValue={(x) => { setTestBrand(x); setLotNumber(null); setExpiration(null); }} />
-            <Select
+              onChange={(x) => { setTestBrand(x); setLotNumber(null); setExpiration(null); }} />
+            <C19TestSelector
               label="Original Expiration Date"
-              placeholder="Pick value"
               data={Array.from(new Set(c19TestData.filter((row) => (row[0] === manufacturer && row[1] === testBrand)).map((row) => row[2])))}
               value={expiration}
               onChange={(x) => { setExpiration(x); setLotNumber(null); }}
               disabled={manufacturer === null || testBrand === null}
-              searchable
             />
-            <Select
+            <C19TestSelector
               label="Lot number"
-              placeholder="Pick value"
               data={Array.from(new Set(c19TestData.filter((row) => (row[0] === manufacturer && row[1] === testBrand && row[2] === expiration)).map((row) => row[3])))}
               value={lotNumber}
               onChange={setLotNumber}
               disabled={manufacturer === null || testBrand === null || expiration === null}
-              searchable
             />
             {manufacturer === "Celltrion USA, Inc." ?
               <>
@@ -184,21 +176,23 @@ export default function Home({
 interface C19TestProps {
   label: string,
   disabled: boolean,
-  options: string[],
+  data: string[],
   value: string | null,
-  setValue: Dispatch<SetStateAction<string | null>>
+  onChange: Dispatch<SetStateAction<string | null>>
 }
 
-function C19TestSelector<T>({ label, disabled, options, value, setValue }: C19TestProps) {
+function C19TestSelector<T>({ label, disabled, data, value, onChange }: C19TestProps) {
   return (
     <Select
       label={label}
       placeholder="Pick value"
-      data={options}
+      data={data}
       value={value}
-      onChange={setValue}
+      onChange={onChange}
       disabled={disabled}
       searchable
+      clearable
+      nothingFoundMessage="Nothing found..."
     />
   );
 }
