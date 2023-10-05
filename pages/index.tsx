@@ -44,7 +44,6 @@ export default function Home({
     <>
       <Head>
         <ColorSchemeScript defaultColorScheme="auto" />
-        <title>TurboTest 🚀🧪</title>
         
         <!-- HTML Meta Tags -->
         <title>TurboTest 🚀🧪</title>
